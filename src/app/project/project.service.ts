@@ -2,34 +2,43 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environment/environment';
-import { User } from '../user/model/user';
+import { Project } from './model/project';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectService {
-
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  public getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.apiServerUrl}/users`);
+  public getProjects(): Observable<Project[]> {
+    return this.httpClient.get<Project[]>(`${this.apiServerUrl}/projects`);
   }
 
-  public getUserById(userId: number): Observable<User> {
-    return this.httpClient.get<User>(`${this.apiServerUrl}/user/${userId}`);
+  public getProjectById(projectId: number): Observable<Project> {
+    return this.httpClient.get<Project>(
+      `${this.apiServerUrl}/project/${projectId}`
+    );
   }
 
-  public addUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(`${this.apiServerUrl}/user/add`, user);
+  public addProject(project: Project): Observable<Project> {
+    return this.httpClient.post<Project>(
+      `${this.apiServerUrl}/project/add`,
+      project
+    );
   }
 
-  public updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(`${this.apiServerUrl}/user/${user.id}`, user);
+  public updateProject(project: Project): Observable<Project> {
+    return this.httpClient.put<Project>(
+      `${this.apiServerUrl}/project/${project.id}`,
+      project
+    );
   }
 
-  public deleteUserById(userId: number): Observable<void> {
-    return this.httpClient.get<void>(`${this.apiServerUrl}/user/${userId}`);
+  public deleteProjectById(projectId: number): Observable<void> {
+    return this.httpClient.get<void>(
+      `${this.apiServerUrl}/project/${projectId}`
+    );
   }
 }
