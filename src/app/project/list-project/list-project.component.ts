@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '../model/project';
 import { ProjectService } from '../project.service';
 
@@ -10,9 +11,10 @@ import { ProjectService } from '../project.service';
 })
 export class ListProjectComponent implements OnInit {
 
-  public projects: Project[] | undefined;
+  public projects: Project[]|undefined;
+  public project: Project|undefined;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private router: Router,private projectService: ProjectService) {}
 
   ngOnInit(): void {
       this.getProjects();
@@ -28,5 +30,10 @@ export class ListProjectComponent implements OnInit {
       }
     )
   }
+
+  goToProject(project: Project) {
+    this.router.navigate(["/project-manager/project", project.id]);
+  }
+
 
 }

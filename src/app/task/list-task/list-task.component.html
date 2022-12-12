@@ -1,5 +1,39 @@
-<p>list-task works!</p>
+<div class="container">
+  <div class="row">
+    <h2> Tasks </h2>
 
-<div *ngFor="let task of tasks">
-  <p>{{task.name}}</p>
+      <div *ngFor="let task of tasks" class="col m6 s12">
+
+          <div class="card horizontal" (click)="goToTask(task)">
+              <div class="card-image">
+                <div id="canvas-holder">
+                    <canvas id="chart-area"></canvas>
+                </div>
+              </div>
+
+              <div class="card-stacked">
+                  <div class="card-content" class="center">
+                      <div>
+                          <strong> {{ task.name | uppercase }} </strong>
+                          - id : {{ task.id }}
+                      </div>
+                      <div>
+                        <p>
+                            <br> Total costs : {{ task.cost | currency:'€' :true:'1.0' }}
+                            <br> Revenue : {{ task.revenue | currency:'€' :true:'1.0' }}
+                            <br> <strong> Profit : {{task.revenue - task.cost | currency:'€'
+                                :true:'1.0' }} </strong>
+                        </p>
+                    </div>
+                    <div class="card-action">
+                      <a>Edit</a>
+                      <a>Delete</a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+
+

@@ -1,1 +1,45 @@
-<p>focus-project works!</p>
+<div *ngIf="project" class="row">
+    <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ project.name }}</h2>
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img [src]="project.logo">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><strong>{{ project.name }}</strong></td>
+              </tr>
+              <tr>
+                <td>Management</td>
+                <td><strong>{{ project.management }}</strong></td>
+              </tr>
+              <tr>
+                <td>Developer</td>
+                <td><strong>{{ project.developer }}</strong></td>
+              </tr>
+
+              <tr>
+                <td>Start Date</td>
+                <td><em>{{ project.startDate | date:"dd/MM/yyyy" }}</em></td>
+              </tr>
+              <tr>
+                <td>End Date</td>
+                <td><em>{{ project.endDate | date:"dd/MM/yyyy" }}</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a>Edit</a>
+          <a>Delete</a>
+          <a>Go Back</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <h4 *ngIf='!project' class="center">No Project to display !</h4>

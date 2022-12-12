@@ -1,5 +1,34 @@
-<p>list-task works!</p>
+<div class="container">
+  <div class="row">
 
-<div *ngFor="let user of users">
-  <p>{{user.name}}</p>
+    <h2> Users </h2>
+
+      <div *ngFor="let user of users" class="col m6 s12">
+
+          <div class="card horizontal" (click)="goToUser(user)">
+              <div class="card-image">
+                <div id="canvas-holder">
+                    <canvas id="chart-area"></canvas>
+                </div>
+              </div>
+
+              <div class="card-stacked">
+                  <div class="card-content" class="center">
+                      <div>
+                          <strong> {{ user.name | uppercase }} </strong>
+                          - id : {{ user.id }}
+                          - username : {{ user.username }}
+                          - email : {{ user.email }}
+                      </div>
+                      <div class="card-action">
+                        <a>Edit</a>
+                        <a>Delete</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+
+

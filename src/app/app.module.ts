@@ -13,6 +13,8 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { FocusUserComponent } from './user/focus-user/focus-user.component';
 import { UserModule } from './user/user.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
 
 registerLocaleData(localeFr)
 
@@ -21,16 +23,17 @@ registerLocaleData(localeFr)
     AppComponent,
     PageNotFoundComponent,
     EditUserComponent,
-    FocusUserComponent
+    FocusUserComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     TaskModule,
     ProjectModule,
     UserModule,
-    AppRoutingModule,
-    NgbModule
+    AppRoutingModule
   ],
   providers: [
     {

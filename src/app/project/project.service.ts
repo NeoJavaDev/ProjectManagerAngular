@@ -18,7 +18,7 @@ export class ProjectService {
 
   public getProjectById(projectId: number): Observable<Project> {
     return this.httpClient.get<Project>(
-      `${this.apiServerUrl}/project/${projectId}`
+      `${this.apiServerUrl}/projects/${projectId}`
     );
   }
 

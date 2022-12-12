@@ -4,6 +4,7 @@ import { ListUserComponent } from './list-user/list-user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FocusUserComponent } from './focus-user/focus-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     ListUserComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes),FormsModule
   ]
 })
 export class UserModule { }
