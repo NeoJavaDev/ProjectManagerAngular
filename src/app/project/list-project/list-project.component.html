@@ -1,4 +1,40 @@
-<p>list-project works!</p>
-<div *ngFor="let project of projects">
-  <p>{{project.name}}</p>
+<div class="container">
+  <div class="row">
+
+      <div *ngFor="let project of projects" class="col m4 s12">
+
+          <div class="card horizontal" projectBorderCard>
+              <div class="card-image">
+                <canvas id="doughnutChart"></canvas>
+              </div>
+
+              <div class="card-stacked">
+                  <div class="card-content" class="center">
+                      <div>
+                          <strong> {{ project.name | uppercase }} </strong>
+                          - id : {{ project.id }}
+                      </div>
+
+                      <div>
+                          <p>
+                              <br> Total costs : {{ project.cost | currency:'€' :true:'1.0' }}
+                              <br> Revenue : {{ project.revenue | currency:'€' :true:'1.0' }}
+                              <br> <strong> Profit : {{project.revenue - project.cost | currency:'€'
+                                  :true:'1.0' }} </strong>
+                          </p>
+                      </div>
+
+                      <div>
+                          <p>
+                              <br> Start Date : {{ project.startDate | date }}
+                              <br> End Date : {{ project.endDate | date }}
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+
+

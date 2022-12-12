@@ -12,6 +12,7 @@ import { ProjectModule } from './project/project.module';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { FocusUserComponent } from './user/focus-user/focus-user.component';
 import { UserModule } from './user/user.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localeFr)
 
@@ -28,7 +29,8 @@ registerLocaleData(localeFr)
     TaskModule,
     ProjectModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [
     {
